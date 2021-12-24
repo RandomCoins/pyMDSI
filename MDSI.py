@@ -8,6 +8,10 @@ def mdsi(Ref, Dist, combMethod='sum'):
     C2 = 55
     C3 = 550
 
+    # keep the result same with matlab conv2() when the kernel size is even
+    Ref = cv2.flip(Ref, -1)
+    Dist = cv2.flip(Dist, -1)
+
     Ref = Ref.astype(np.float)
     Dist = Dist.astype(np.float)
     H, W, _ = Ref.shape
